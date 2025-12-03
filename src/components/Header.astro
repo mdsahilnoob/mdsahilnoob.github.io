@@ -567,26 +567,6 @@
     background: #333333;
   }
 
-  /* Tablet and small desktop */
-  @media (max-width: 1024px) {
-    .name {
-      font-size: clamp(56px, 10vw, var(--hero-size));
-    }
-
-    .title {
-      font-size: clamp(16px, 3vw, var(--text-size));
-    }
-
-    .contact-left {
-      gap: 30px;
-    }
-
-    .contact a {
-      font-size: 13px;
-    }
-  }
-
-  /* Tablet */
   @media (max-width: 768px) {
     .nav-toggle {
       display: block;
@@ -621,15 +601,6 @@
       font-size: 15px;
     }
 
-    .name {
-      font-size: clamp(48px, 11vw, 72px);
-    }
-
-    .title {
-      font-size: clamp(15px, 3.5vw, 18px);
-      margin-bottom: 2rem;
-    }
-
     .contact {
       bottom: 30px;
     }
@@ -638,124 +609,9 @@
       gap: 20px;
     }
 
-    .contact a {
-      font-size: 12px;
-    }
-
     .dark-mode-toggle {
       top: 14px;
       right: 60px;
-    }
-
-    .strip-text {
-      font-size: clamp(20px, 5vw, 40px);
-    }
-  }
-
-  /* Mobile landscape and large phones */
-  @media (max-width: 640px) {
-    .name {
-      font-size: clamp(40px, 10vw, 56px);
-    }
-
-    .title {
-      font-size: clamp(14px, 3.5vw, 16px);
-    }
-
-    .contact-left {
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .contact a {
-      font-size: 11px;
-    }
-
-    .scroll-indicator {
-      font-size: 11px;
-    }
-
-    .scroll-line {
-      width: 30px;
-    }
-  }
-
-  /* Small mobile devices */
-  @media (max-width: 480px) {
-    .nav-container {
-      height: 50px;
-    }
-
-    .nav-logo {
-      font-size: 18px;
-    }
-
-    .name {
-      font-size: clamp(32px, 9vw, 48px);
-    }
-
-    .title {
-      font-size: clamp(13px, 3.5vw, 15px);
-      margin-bottom: 1.5rem;
-    }
-
-    .contact {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 20px;
-      bottom: 20px;
-    }
-
-    .contact-left {
-      gap: 12px;
-    }
-
-    .contact a {
-      font-size: 11px;
-    }
-
-    .strip-text {
-      font-size: clamp(16px, 4.5vw, 28px);
-    }
-
-    .dark-mode-toggle {
-      font-size: 12px;
-      right: 55px;
-    }
-
-    .back-to-top {
-      width: 45px;
-      height: 45px;
-      font-size: 18px;
-      bottom: 20px;
-      right: 15px;
-    }
-  }
-
-  /* Extra small mobile devices */
-  @media (max-width: 375px) {
-    .name {
-      font-size: clamp(28px, 8.5vw, 40px);
-    }
-
-    .title {
-      font-size: clamp(12px, 3.5vw, 14px);
-    }
-
-    .nav-logo {
-      font-size: 16px;
-    }
-
-    .contact a {
-      font-size: 10px;
-    }
-
-    .scroll-indicator {
-      font-size: 10px;
-    }
-
-    .strip-text {
-      font-size: clamp(14px, 4vw, 24px);
     }
   }
 </style>
