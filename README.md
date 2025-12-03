@@ -105,6 +105,3 @@ MD Sahil
 - GitHub: @mdsahilnoob
 - LinkedIn: mdsahilnoob
 - Email: mds603052@gmail.com
-- Google Student Ambassador '25
-- Campus Leader @C4GT
-- KIIT University '27
