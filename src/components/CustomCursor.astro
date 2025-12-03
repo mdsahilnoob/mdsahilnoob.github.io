@@ -1,0 +1,116 @@
+---
+
+---
+
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<script>
+  const cursorDot = document.querySelector(".cursor-dot") as HTMLElement;
+  const cursorOutline = document.querySelector(
+    ".cursor-outline"
+  ) as HTMLElement;
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let outlineX = 0;
+  let outlineY = 0;
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (cursorDot) {
+      cursorDot.style.left = `${mouseX}px`;
+      cursorDot.style.top = `${mouseY}px`;
+    }
+  });
+
+  function animateOutline() {
+    const delay = 0.15;
+    outlineX += (mouseX - outlineX) * delay;
+    outlineY += (mouseY - outlineY) * delay;
+
+    if (cursorOutline) {
+      cursorOutline.style.left = `${outlineX}px`;
+      cursorOutline.style.top = `${outlineY}px`;
+    }
+
+    requestAnimationFrame(animateOutline);
+  }
+
+  animateOutline();
+
+  // Add hover effect for interactive elements
+  const interactiveElements = document.querySelectorAll(
+    "a, button, .project-card, input, textarea"
+  );
+
+  interactiveElements.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      cursorDot?.classList.add("cursor-hover");
+      cursorOutline?.classList.add("cursor-hover");
+    });
+
+    el.addEventListener("mouseleave", () => {
+      cursorDot?.classList.remove("cursor-hover");
+      cursorOutline?.classList.remove("cursor-hover");
+    });
+  });
+</script>
+
+<style>
+  .cursor-dot,
+  .cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 10000;
+    transition:
+      opacity 0.3s ease-in-out,
+      transform 0.3s ease;
+  }
+
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-text);
+    z-index: 10001;
+  }
+
+  .cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary-text);
+    background-color: transparent;
+    opacity: 0.5;
+  }
+
+  .cursor-dot.cursor-hover {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.8;
+  }
+
+  .cursor-outline.cursor-hover {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.3;
+  }
+
+  /* Hide custom cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .cursor-dot,
+    .cursor-outline {
+      display: none;
+    }
+  }
+
+  /* Hide default cursor on desktop */
+  @media (hover: hover) and (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
+  }
+</style>

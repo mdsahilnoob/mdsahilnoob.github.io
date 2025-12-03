@@ -5,7 +5,7 @@ interface Props {
 }
 
 const {
-  title = "Mohammad Sahil - Full-Stack Developer",
+  title = "Mohammad Sahil",
   description = "Portfolio of Mohammad Sahil, an 18-year-old passionate Student Developer from India building robust and scalable applications. Google Student Ambassador '25, Core Team @Girlscript Foundation '24, Finalist @HackNITR5, KIIT '27.",
 } = Astro.props;
 
@@ -95,6 +95,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <slot />
 
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <footer class="footer fade-in">
       <p>
         copyright 2025. made by mohammad sahil. crafted with code & curiosity.
@@ -137,6 +140,64 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           });
         });
       }
+
+      const cursorDot = document.querySelector(".cursor-dot") as HTMLElement;
+      const cursorOutline = document.querySelector(
+        ".cursor-outline"
+      ) as HTMLElement;
+
+      let mouseX = 0;
+      let mouseY = 0;
+      let outlineX = 0;
+      let outlineY = 0;
+
+      window.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      let dotX = 0;
+      let dotY = 0;
+
+      function animateCursors() {
+        const dotDelay = 0.1;
+        const outlineDelay = 0.05;
+
+        dotX += (mouseX - dotX) * dotDelay;
+        dotY += (mouseY - dotY) * dotDelay;
+        outlineX += (mouseX - outlineX) * outlineDelay;
+        outlineY += (mouseY - outlineY) * outlineDelay;
+
+        if (cursorDot) {
+          cursorDot.style.left = `${dotX}px`;
+          cursorDot.style.top = `${dotY}px`;
+        }
+
+        if (cursorOutline) {
+          cursorOutline.style.left = `${outlineX}px`;
+          cursorOutline.style.top = `${outlineY}px`;
+        }
+
+        requestAnimationFrame(animateCursors);
+      }
+
+      animateCursors();
+
+      const interactiveElements = document.querySelectorAll(
+        "a, button, .project-card, input, textarea"
+      );
+
+      interactiveElements.forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          cursorDot?.classList.add("cursor-hover");
+          cursorOutline?.classList.add("cursor-hover");
+        });
+
+        el.addEventListener("mouseleave", () => {
+          cursorDot?.classList.remove("cursor-hover");
+          cursorOutline?.classList.remove("cursor-hover");
+        });
+      });
     </script>
   </body>
 </html>
@@ -156,6 +217,59 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     line-height: 1.6;
     letter-spacing: 0.05em;
     text-transform: lowercase;
+  }
+
+  .cursor-dot,
+  .cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 10000;
+    transition:
+      opacity 0.3s ease-in-out,
+      transform 0.3s ease;
+    mix-blend-mode: difference;
+  }
+
+  .cursor-dot {
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    z-index: 10001;
+  }
+
+  .cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    opacity: 0.5;
+  }
+
+  .cursor-dot.cursor-hover {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: none;
+  }
+
+  .cursor-outline.cursor-hover {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .cursor-dot,
+    .cursor-outline {
+      display: none;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
   }
 
   @media (max-width: 768px) {
