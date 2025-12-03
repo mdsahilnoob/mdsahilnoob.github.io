@@ -1,0 +1,255 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SkillBar from "../components/SkillBar.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { getCollection } from "astro:content";
+
+const allProjects = await getCollection("projects");
+const projects = allProjects.sort((a, b) => a.data.order - b.data.order);
+
+const programmingLanguages = [
+  { name: "JavaScript", progress: 95 },
+  { name: "TypeScript", progress: 90 },
+  { name: "Java", progress: 75 },
+  { name: "Python", progress: 70 },
+];
+
+const frameworksTools = [
+  { name: "React.js & Next.js", progress: 95 },
+  { name: "Tailwind CSS", progress: 90 },
+  { name: "Node.js & Express", progress: 85 },
+  { name: "MongoDB & Prisma", progress: 80 },
+  { name: "Redis", progress: 75 },
+  { name: "Docker & Kubernetes", progress: 70 },
+  { name: "AWS", progress: 70 },
+  { name: "GitHub Actions", progress: 75 },
+];
+---
+
+<Layout>
+  <Header />
+
+  <main>
+    <section id="about" class="section fade-in">
+      <div class="container">
+        <SectionHeader title="about" number="01" />
+        <div class="text">
+          <p>
+            I'm a passionate Student Developer from India, focused on building
+            robust and scalable applications. Currently working on projects that
+            scale and solve real-world problems, while continuously learning
+            advanced cloud computing and system design. I believe the best code
+            is written with a good cup of coffee nearby! Google Student
+            Ambassador '25 | Core Team @Girlscript Foundation '24 | Finalist
+            @HackNITR5 | Campus Leader @C4GT | KIIT '27.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section fade-in">
+      <div class="container">
+        <SectionHeader title="projects" number="02" />
+        <div class="projects-grid">
+          {
+            projects.map((project, index) => (
+              <ProjectCard
+                title={project.data.title}
+                description={project.data.description}
+                tech={project.data.tech}
+                github={project.data.github}
+                live={project.data.live}
+                stars={project.data.stars}
+                index={index}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section fade-in">
+      <div class="container">
+        <SectionHeader title="skills" number="03" />
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Programming Languages</h3>
+            {
+              programmingLanguages.map((skill) => (
+                <SkillBar name={skill.name} progress={skill.progress} />
+              ))
+            }
+          </div>
+
+          <div class="skill-category">
+            <h3>Frameworks & Tools</h3>
+            {
+              frameworksTools.map((skill) => (
+                <SkillBar name={skill.name} progress={skill.progress} />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="setup" class="section fade-in">
+      <div class="container">
+        <SectionHeader title="tools & setup" number="04" />
+        <div class="misc-grid">
+          <div class="misc-item slide-up stagger-1">
+            <span class="misc-number">01</span>
+            <h3>Front-End & UI</h3>
+            <div class="misc-content">
+              <span class="highlight">react.js & next.js</span> frameworks.<br
+              />
+              <span class="highlight">tailwind css</span> expert-level styling.<br
+              />
+              <span class="highlight">figma</span> for design & architecture.<br
+              />
+              <span class="highlight">responsive</span> mobile-first design.
+            </div>
+          </div>
+
+          <div class="misc-item slide-up stagger-2">
+            <span class="misc-number">02</span>
+            <h3>Back-End & Data</h3>
+            <div class="misc-content">
+              <span class="highlight">mern stack</span> mongodb, express, node.js.<br
+              />
+              <span class="highlight">prisma orm</span> for database management.<br
+              />
+              <span class="highlight">redis</span> for performance caching.<br
+              />
+              <span class="highlight">api creation</span> and optimization.
+            </div>
+          </div>
+
+          <div class="misc-item slide-up stagger-3">
+            <span class="misc-number">03</span>
+            <h3>Achievements & Recognition</h3>
+            <div class="misc-content">
+              <span class="highlight">google student ambassador</span> '25<br />
+              <span class="highlight">core team</span> @girlscript foundation '24<br
+              />
+              <span class="highlight">finalist</span> @hacknitr5<br />
+              <span class="highlight">293 contributions</span> in last year
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section fade-in">
+      <div class="container">
+        <SectionHeader title="get in touch" number="05" />
+        <ContactForm />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: var(--section-padding);
+  }
+
+  .text p {
+    font-size: clamp(24px, 5vw, 52px);
+    line-height: 1.2;
+    margin: 0 0 0 50px;
+    color: var(--secondary-text);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .skill-category h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--primary-text);
+  }
+
+  .misc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 60px;
+  }
+
+  .misc-item {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    padding: 40px 30px;
+    transition: var(--transition-bounce);
+    position: relative;
+  }
+
+  .misc-item:hover {
+    transform: translateY(-10px);
+    background: var(--hover-bg);
+    border-color: var(--primary-text);
+  }
+
+  .misc-number {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--secondary-text);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .misc-item h3 {
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: 300;
+    margin-bottom: 16px;
+    color: var(--primary-text);
+    line-height: 1.3;
+  }
+
+  .misc-content {
+    color: var(--secondary-text);
+    line-height: 1.6;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  .highlight {
+    color: var(--primary-text);
+    font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    .text p {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .skills-grid,
+    .misc-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,167 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Mohammad Sahil - Full-Stack Developer",
+  description = "Portfolio of Mohammad Sahil, an 18-year-old passionate Student Developer from India building robust and scalable applications. Google Student Ambassador '25, Core Team @Girlscript Foundation '24, Finalist @HackNITR5, KIIT '27.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Mohammad Sahil" />
+    <meta
+      name="keywords"
+      content="Mohammad Sahil, mdsahilnoob, Full-Stack Developer, MERN Stack, React.js, Next.js, JavaScript, TypeScript, MongoDB, Node.js, Express, Redis, AWS, Docker, Kubernetes, KIIT, Google Student Ambassador, Girlscript Foundation, HackNITR"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="General" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Mohammad Sahil - Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:creator" content="@mdsahilnoob" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Mohammad Sahil",
+        alternateName: "mdsahilnoob",
+        url: "https://linkedin.com/in/mdsahilnoob",
+        sameAs: [
+          "https://github.com/mdsahilnoob",
+          "https://linkedin.com/in/mdsahilnoob",
+          "https://twitter.com/mdsahil_noob",
+        ],
+        jobTitle: "Developer",
+        description: description,
+        knowsAbout: [
+          "JavaScript",
+          "TypeScript",
+          "React.js",
+          "Next.js",
+          "Node.js",
+          "MongoDB",
+          "MERN Stack",
+          "Cloud Computing",
+          "Docker",
+          "AWS",
+        ],
+        alumniOf: {
+          "@type": "Organization",
+          name: "KIIT University",
+        },
+        nationality: {
+          "@type": "Country",
+          name: "India",
+        },
+      })}
+    />
+    <link
+      rel="preload"
+      href="/fonts/GowunBatang.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <style is:global>
+      @import "../styles/global.css";
+    </style>
+  </head>
+  <body>
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <slot />
+
+    <footer class="footer fade-in">
+      <p>
+        copyright 2025. made by mohammad sahil. crafted with code & curiosity.
+      </p>
+    </footer>
+
+    <script>
+      const theme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", theme);
+
+      const updateProgress = () => {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        const progressBar = document.getElementById("reading-progress");
+        if (progressBar) {
+          progressBar.style.width = `${progress}%`;
+        }
+      };
+
+      window.addEventListener("scroll", updateProgress, { passive: true });
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document.addEventListener("DOMContentLoaded", () => {
+          document.querySelectorAll(".fade-in, .slide-up").forEach((el) => {
+            observer.observe(el);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  .footer {
+    margin-top: 120px;
+    padding: 60px 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+  }
+
+  .footer p {
+    color: var(--secondary-text);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      margin-top: 60px;
+      padding: 40px 0;
+    }
+  }
+</style>

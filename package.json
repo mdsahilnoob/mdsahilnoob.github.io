@@ -1,0 +1,17 @@
+{
+  "name": "md-sahil-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && cp .nojekyll dist/.nojekyll",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.15.3"
+  },
+  "devDependencies": {
+    "lightningcss": "^1.30.2"
+  }
+}
