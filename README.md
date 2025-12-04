@@ -2,6 +2,10 @@
 
 Modern, performant portfolio built with Astro, featuring zero JavaScript by default and optimal performance.
 
+<p align="center">
+  <img src="public/screenshot.png" alt="mdsahil portfolio banner" />
+</p>
+
 Full-Stack Developer | KIIT '27 | Google Student Ambassador '25
 
 ## Features
