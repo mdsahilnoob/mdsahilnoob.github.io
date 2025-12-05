@@ -27,6 +27,13 @@ Full-Stack Developer | KIIT '27 | Google Student Ambassador '25
 - First Contentful Paint: <1.2s
 - Time to Interactive: <2.5s
 
+## Links
+
+- Website: [https://mdsahil.me](https://mdsahil.me)
+- Sitemap: [https://mdsahil.me/sitemap.xml](https://mdsahil.me/sitemap.xml)
+- Google Search Console: [https://search.google.com/search-console](https://search.google.com/search-console)
+- Namecheap: [https://www.namecheap.com](https://www.namecheap.com/)
+
 ## Tech Stack
 
 - Framework: Astro
@@ -98,6 +105,12 @@ order: 1
 | `npm run preview`    | Preview your build locally, before deploying     |
 | `npm run astro ...`  | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro help` | Get help using the Astro CLI                     |
+
+## Links
+
+- Website: [https://mdsahil.me](https://mdsahil.me)
+- Sitemap: [https://mdsahil.me/sitemap.xml](https://mdsahil.me/sitemap.xml)
+- Google Search Console: [https://search.google.com/search-console](https://search.google.com/search-console)
 
 ## License
 
