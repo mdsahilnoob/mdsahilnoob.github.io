@@ -106,12 +106,6 @@ order: 1
 | `npm run astro ...`  | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro help` | Get help using the Astro CLI                     |
 
-## Links
-
-- Website: [https://mdsahil.me](https://mdsahil.me)
-- Sitemap: [https://mdsahil.me/sitemap.xml](https://mdsahil.me/sitemap.xml)
-- Google Search Console: [https://search.google.com/search-console](https://search.google.com/search-console)
-
 ## License
 
 MIT License
