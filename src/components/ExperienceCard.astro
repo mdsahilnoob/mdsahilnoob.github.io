@@ -6,10 +6,11 @@ interface Props {
   description: string;
   skills: string[];
   link?: string;
+  linkText?: string;
   index: number;
 }
 
-const { title, company, period, description, skills, link, index } =
+const { title, company, period, description, skills, link, linkText, index } =
   Astro.props;
 const paddedIndex = String(index + 1).padStart(2, "0");
 ---
@@ -41,7 +42,7 @@ const paddedIndex = String(index + 1).padStart(2, "0");
               rel="noopener noreferrer"
               class="experience-link"
             >
-              learn more
+              {linkText || "Learn More"}
             </a>
           </div>
         )
