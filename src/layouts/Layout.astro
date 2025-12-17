@@ -6,7 +6,7 @@ interface Props {
 
 const {
   title = "Mohammad Sahil",
-  description = "Portfolio of Mohammad Sahil, an 18-year-old passionate Student Developer from India building robust and scalable applications. Google Student Ambassador '25, Core Team @Girlscript Foundation '24, Finalist @HackNITR5, KIIT '27.",
+  description = "Mohammad Sahil portfolio",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -46,7 +46,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="author" content="Mohammad Sahil" />
     <meta
       name="keywords"
-      content="Mohammad Sahil, mdsahilnoob, Full-Stack Developer, MERN Stack, React.js, Next.js, JavaScript, TypeScript, MongoDB, Node.js, Express, Redis, AWS, Docker, Kubernetes, KIIT, Google Student Ambassador, Girlscript Foundation, HackNITR"
+      content="Mohammad Sahil, mdsahilnoob, Full-Stack Developer, MERN Stack, React.js, Next.js, JavaScript, TypeScript, MongoDB, Node.js, Express, Redis, AWS, Docker, Kubernetes"
     />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
@@ -60,9 +60,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:site_name" content="Mohammad Sahil - Portfolio" />
     <meta property="og:locale" content="en_US" />
     <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:creator" content="@mdsahilnoob" />
+    <meta property="twitter:image" content="/public/screenshot_pc.png" />
     <script
       type="application/ld+json"
       set:html={JSON.stringify({
