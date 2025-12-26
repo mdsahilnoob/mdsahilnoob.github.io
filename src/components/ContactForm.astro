@@ -5,8 +5,8 @@
 <div class="contact-section">
   <div class="contact-info">
     <p>
-      Looking for a developer to bring your ideas to life? I'm open to
-      Remote/ Freelance opportunities.
+      Looking for a developer to bring your ideas to life? I'm open to Remote/
+      Freelance opportunities.
     </p>
     <div class="contact-links">
       <a href="mailto:mds603052@gmail.com" class="contact-link">
@@ -72,23 +72,20 @@
   </form>
 </div>
 
-<div id="notification" class="notification" style="display: none;"></div>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+></script>
+<script type="text/javascript">
+  (function () {
+    emailjs.init({
+      publicKey: "ZDkpmRIkAqwpFPpjf",
+    });
+  })();
+</script>
 
 <script>
   const form = document.getElementById("contactForm") as HTMLFormElement;
-  const notification = document.getElementById("notification") as HTMLElement;
-
-  function showNotification(message: string, type: "success" | "error") {
-    if (!notification) return;
-
-    notification.textContent = message;
-    notification.className = `notification notification-${type}`;
-    notification.style.display = "block";
-
-    setTimeout(() => {
-      notification.style.display = "none";
-    }, 4000);
-  }
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -102,21 +99,55 @@
 
     if (submitButton) {
       submitButton.disabled = true;
-      if (buttonText) buttonText.textContent = "Sending...";
+      if (buttonText) buttonText.textContent = "sending...";
     }
 
-    setTimeout(() => {
-      showNotification(
-        "Message sent successfully! I'll get back to you soon.",
-        "success"
-      );
+    try {
+      // Send contact email to you
+      await emailjs.sendForm("service_dpy66iq", "template_pmz1lpv", form);
+
+      // Send auto-reply to user
+      await emailjs.sendForm("service_dpy66iq", "template_w39qism", form);
+
+      if (submitButton && buttonText) {
+        submitButton.classList.add("button-success");
+        buttonText.textContent = "message sent";
+      }
       form.reset();
 
-      if (submitButton) {
-        submitButton.disabled = false;
-        if (buttonText) buttonText.textContent = "send message";
+      setTimeout(() => {
+        if (submitButton && buttonText) {
+          submitButton.classList.add("button-slideout");
+        }
+      }, 3000);
+
+      setTimeout(() => {
+        if (submitButton && buttonText) {
+          submitButton.classList.remove("button-success", "button-slideout");
+          buttonText.textContent = "send message";
+          submitButton.disabled = false;
+        }
+      }, 3600);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+
+      if (submitButton && buttonText) {
+        submitButton.classList.add("button-error");
+        buttonText.textContent = "failed to send";
       }
-    }, 1000);
+      setTimeout(() => {
+        if (submitButton && buttonText) {
+          submitButton.classList.add("button-slideout");
+        }
+      }, 3000);
+      setTimeout(() => {
+        if (submitButton && buttonText) {
+          submitButton.classList.remove("button-error", "button-slideout");
+          buttonText.textContent = "send message";
+          submitButton.disabled = false;
+        }
+      }, 3600);
+    }
   });
 </script>
 
@@ -206,6 +237,8 @@
     font-weight: 500;
     cursor: pointer;
     transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
   }
 
   .submit-button:hover {
@@ -215,31 +248,66 @@
   }
 
   .submit-button:disabled {
-    opacity: 0.7;
     cursor: not-allowed;
-    transform: none !important;
   }
 
-  .notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 16px 24px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 10000;
-    max-width: 400px;
-    font-size: 14px;
-    line-height: 1.4;
-    color: white;
+  .submit-button:disabled:hover {
+    transform: none;
   }
 
-  .notification-success {
-    background: #4caf50;
+  .button-text {
+    display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .notification-error {
-    background: #f44336;
+  .button-success .button-text {
+    animation: slideTextIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .button-success {
+    background: #22c55e !important;
+  }
+
+  [data-theme="dark"] .button-success {
+    background: #16a34a !important;
+  }
+
+  .button-error .button-text {
+    animation: slideTextIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .button-error {
+    background: #dc3545 !important;
+  }
+
+  [data-theme="dark"] .button-error {
+    background: #ff4757 !important;
+  }
+
+  .button-slideout .button-text {
+    animation: slideTextOut 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes slideTextIn {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideTextOut {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
   }
 
   @media (max-width: 768px) {
