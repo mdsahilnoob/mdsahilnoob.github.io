@@ -33,6 +33,7 @@ Full-Stack Developer | KIIT '27 | Google Student Ambassador '25
 - Sitemap: [https://mdsahil.me/sitemap.xml](https://mdsahil.me/sitemap.xml)
 - Google Search Console: [https://search.google.com/search-console](https://search.google.com/search-console)
 - Namecheap: [https://www.namecheap.com](https://www.namecheap.com/)
+- Google Analytics: [https://marketingplatform.google.com/about/analytics](https://marketingplatform.google.com/about/analytics/)
 
 ## Tech Stack
 
