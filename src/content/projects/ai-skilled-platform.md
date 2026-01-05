@@ -5,5 +5,5 @@ tech: ["TypeScript", "Next.js", "AI/ML", "React"]
 github: "https://github.com/mdsahilnoob/ai-skilled-platform"
 live: "https://ai-skilled-platform.vercel.app"
 stars: 1
-order: 4
+order: 5
 ---
