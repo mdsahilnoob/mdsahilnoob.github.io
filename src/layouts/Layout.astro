@@ -132,9 +132,12 @@ const socialImageURL = new URL("/screenshot_pc.png", Astro.site);
     <div class="cursor-outline"></div>
 
     <footer class="footer fade-in">
-      <p>
+      <p class="footer-copyright">
         copyright 2025. made by mohammad sahil. crafted with code & curiosity.
       </p>
+      <div class="footer-content">
+        <h1 class="footer-title">SAHIL</h1>
+      </div>
     </footer>
 
     <script>
@@ -238,18 +241,60 @@ const socialImageURL = new URL("/screenshot_pc.png", Astro.site);
 <style>
   .footer {
     margin-top: 120px;
-    padding: 60px 0;
+    padding: 30px 0;
     border-top: 1px solid var(--border-color);
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
 
-  .footer p {
+  .footer-content {
+    position: relative;
+    margin-bottom: 0px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .footer-content::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--bg-color) 15%, transparent 200%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .footer-title {
+    font-family: var(--font-family);
+    font-size: clamp(5rem, 20vw, 18rem);
+    font-weight: 1000;
+    color: var(--primary-text);
+    margin: 0;
+    letter-spacing: 0.2em;
+    line-height: 0.9;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    text-align: center;
+    padding: 30px -20px;
+  }
+
+  .footer-copyright {
     color: var(--secondary-text);
+    padding: 0 40px 20px;
     font-size: 12px;
     font-weight: 300;
     line-height: 1.6;
     letter-spacing: 0.05em;
     text-transform: lowercase;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    max-width: var(--container-max);
+    margin: 0 auto;
   }
 
   .cursor-dot,
@@ -308,7 +353,16 @@ const socialImageURL = new URL("/screenshot_pc.png", Astro.site);
   @media (max-width: 768px) {
     .footer {
       margin-top: 60px;
+      padding: 10px 0 30px;
+    }
+
+    .footer-content {
+      margin-bottom: 20px;
+    }
+
+    .footer-title {
       padding: 40px 0;
+      font-size: clamp(3rem, 12vw, 8rem);
     }
   }
 </style>
