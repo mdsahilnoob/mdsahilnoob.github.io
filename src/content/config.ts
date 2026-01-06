@@ -14,6 +14,37 @@ const projectsCollection = defineCollection({
   }),
 });
 
+const experienceCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    company: z.string(),
+    period: z.string(),
+    description: z.string(),
+    skills: z.array(z.string()),
+    link: z.string().url().optional(),
+    linkText: z.string().optional(),
+    order: z.number().default(999),
+  }),
+});
+
+const skillsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    order: z.number().default(999),
+    items: z.array(
+      z.object({
+        name: z.string(),
+        level: z.string(),
+        note: z.string().optional(),
+      })
+    ),
+  }),
+});
+
 export const collections = {
   projects: projectsCollection,
+  experience: experienceCollection,
+  skills: skillsCollection,
 };

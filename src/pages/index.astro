@@ -4,136 +4,15 @@ import Header from "../components/Header.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ExperienceCard from "../components/ExperienceCard.astro";
-import SkillBar from "../components/SkillBar.astro";
+import Skills from "../components/Skills.astro";
 import ContactForm from "../components/ContactForm.astro";
 import { getCollection } from "astro:content";
 
 const allProjects = await getCollection("projects");
 const projects = allProjects.sort((a, b) => a.data.order - b.data.order);
 
-const experiences = [
-  {
-    title: "Google Student Ambassador",
-    company: "Google Developers",
-    period: "Sep 2025 - Present",
-    description:
-      "Selected as one of the few Google Campus Ambassadors for the Gemini Program out of 1000+ applicants across India. Turning Gemini AI from a name students know into a skill they master, inspiring creative and practical AI projects, and building a culture of innovation on campus.",
-    skills: [
-      "AI/ML",
-      "Community Building",
-      "Event Management",
-      "Public Speaking",
-      "Technical Mentoring",
-    ],
-    link: "https://aiskillshouse.com/ambassador-program",
-    linkText: "View Google Ambassador Program",
-  },
-  {
-    title: "Core Member",
-    company: "AlgoZenith KIIT Chapter",
-    period: "Sep 2025 - Present",
-    description:
-      "Led Design Team, with impression of 10k+ on social media. Organized 4 events with 300+ footfall, about competitive programming. Coded and designed AlgoZenith KIIT website, with 2k+ visits.",
-    skills: [
-      "Competitive Programming",
-      "Next.js",
-      "Figma",
-      "Canva",
-      "Workshop Facilitation",
-    ],
-    link: "https://algozenith-kiit-chapter.vercel.app",
-    linkText: "Visit AlgoZenith KIIT Chapter",
-  },
-  {
-    title: "Web Developer & Content Writer",
-    company: "USC.KIIT",
-    period: "Mar 2024 - Present",
-    description:
-      "Led & developed 3+ projects, production ready. Helped organize 3+ flagship event, with 1k+ footfall, speakers from industries. Wrote technical content for it, with impression of 10k+ on social media. Helped create USC KIIT website, with 5k+ visits.",
-    skills: [
-      "Web Development",
-      "React.js",
-      "AI/ML",
-      "Content Writing",
-      "Technical Documentation",
-    ],
-    link: "https://www.usckiit.com",
-    linkText: "Explore USC KIIT Community",
-  },
-  {
-    title: "Campus Leader",
-    company: "Code for GovTech (C4GT)",
-    period: "Sep 2024 - May 2025",
-    description:
-      "Founded and led a 400+ member community promoting open-source projects in digital public goods and digital public infrastructure. Worked as DevRel, contributed to C4GT open-source projects, and conducted workshops attended by 150+ students.",
-    skills: [
-      "Open Source",
-      "Community Management",
-      "Event Organization",
-      "Government Tech",
-    ],
-    link: "https://www.codeforgovtech.in/",
-    linkText: "Learn About Code for GovTech",
-  },
-  {
-    title: "Core Team Member & Content Writer",
-    company: "GirlScript Foundation",
-    period: "Apr 2024 - Sep 2024",
-    description:
-      "Served as Core Team Member and Content Writer for GirlScript Foundation. Created technical content, documentation, and educational materials for the community. Contributed to open-source initiatives and helped organize coding events and workshops.",
-    skills: [
-      "Content Writing",
-      "Technical Documentation",
-      "Open Source",
-      "Community Management",
-    ],
-    link: "https://www.girlscript.tech/",
-    linkText: "Visit GirlScript Foundation",
-  },
-  {
-    title: "Campus Ambassador",
-    company: "GirlScript Summer of Code Extended",
-    period: "Aug 2024 - Jan 2025",
-    description:
-      "Recognized as a Top 10 Campus Ambassador among all participants nationwide, 300+ Registrations. Promoted open-source contributions on campus, organized workshops, mentored contributors, and facilitated student participation in India's largest open-source program.",
-    skills: [
-      "Open Source",
-      "Community Building",
-      "Mentorship",
-      "Event Management",
-    ],
-    link: "https://gssoc.girlscript.tech/",
-    linkText: "Explore GSSoC Program",
-  },
-  {
-    title: "Campus Ambassador & Contributor",
-    company: "Winter Of Blockchain",
-    period: "Aug 2024 - Jan 2025",
-    description:
-      "Promoted blockchain technology and Web3 development on campus. Conducted workshops on blockchain fundamentals, smart contracts, and decentralized applications. Mentored students in blockchain development and crypto technologies.",
-    skills: ["Blockchain", "Web3", "Smart Contracts", "Community Building"],
-    link: "https://github.com/Girlscript-WOB",
-    linkText: "View Winter of Blockchain Projects",
-  },
-];
-
-const programmingLanguages = [
-  { name: "JavaScript", progress: 95 },
-  { name: "TypeScript", progress: 90 },
-  { name: "Java", progress: 75 },
-  { name: "Python", progress: 70 },
-];
-
-const frameworksTools = [
-  { name: "React.js & Next.js", progress: 95 },
-  { name: "Tailwind CSS", progress: 90 },
-  { name: "Node.js & Express", progress: 85 },
-  { name: "MongoDB & Prisma", progress: 80 },
-  { name: "Redis", progress: 75 },
-  { name: "Docker & Kubernetes", progress: 70 },
-  { name: "AWS", progress: 70 },
-  { name: "GitHub Actions", progress: 75 },
-];
+const allExperiences = await getCollection("experience");
+const experiences = allExperiences.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Layout>
@@ -161,13 +40,13 @@ const frameworksTools = [
           {
             experiences.map((exp, index) => (
               <ExperienceCard
-                title={exp.title}
-                company={exp.company}
-                period={exp.period}
-                description={exp.description}
-                skills={exp.skills}
-                link={exp.link}
-                linkText={exp.linkText}
+                title={exp.data.title}
+                company={exp.data.company}
+                period={exp.data.period}
+                description={exp.data.description}
+                skills={exp.data.skills}
+                link={exp.data.link}
+                linkText={exp.data.linkText}
                 index={index}
               />
             ))
@@ -200,25 +79,7 @@ const frameworksTools = [
     <section id="skills" class="section fade-in">
       <div class="container">
         <SectionHeader title="skills" number="04" />
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Programming Languages</h3>
-            {
-              programmingLanguages.map((skill) => (
-                <SkillBar name={skill.name} progress={skill.progress} />
-              ))
-            }
-          </div>
-
-          <div class="skill-category">
-            <h3>Frameworks & Tools</h3>
-            {
-              frameworksTools.map((skill) => (
-                <SkillBar name={skill.name} progress={skill.progress} />
-              ))
-            }
-          </div>
-        </div>
+        <Skills />
       </div>
     </section>
 
@@ -334,20 +195,6 @@ const frameworksTools = [
     gap: 40px;
   }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-  }
-
-  .skill-category h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: var(--primary-text);
-  }
-
   .misc-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -412,7 +259,6 @@ const frameworksTools = [
       font-size: 20px;
     }
 
-    .skills-grid,
     .misc-grid {
       grid-template-columns: 1fr;
     }
