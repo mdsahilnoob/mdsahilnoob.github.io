@@ -1,0 +1,26 @@
+---
+title: "Databases & Hosting"
+order: 4
+items:
+  - name: "Mongo DB"
+    level: "Primary"
+    note: "document obj"
+  - name: "Neon DB"
+    level: "Secondary"
+    note: "Postgresql"
+  - name: "Prisma"
+    level: "Primary"
+    note: "ORM"
+  - name: "Hostinger"
+    level: "Primary"
+    note: "domains (₹)"
+  - name: "Name Cheap"
+    level: "Secondary"
+    note: "domains ($)"
+  - name: "Render"
+    level: "Primary"
+    note: "web services"
+  - name: "Vercel"
+    level: "Primary"
+    note: "static sites"
+---

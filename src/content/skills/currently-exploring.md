@@ -1,6 +1,6 @@
 ---
 title: "Currently Exploring"
-order: 4
+order: 5
 items:
   - name: "Rust"
     level: "Learning"

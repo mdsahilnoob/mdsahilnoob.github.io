@@ -36,7 +36,8 @@ const skillsCollection = defineCollection({
     items: z.array(
       z.object({
         name: z.string(),
-        level: z.string(),
+        level: z.string().optional(),
+        icon: z.string().optional(),
         note: z.string().optional(),
       })
     ),
