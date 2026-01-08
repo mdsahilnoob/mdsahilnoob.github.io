@@ -2,13 +2,13 @@
 title: "Currently Exploring"
 order: 5
 items:
-  - name: "Rust"
+  - name: "Go lang"
     level: "Learning"
-    note: "Systems Programming"
-  - name: "WebAssembly"
+    note: "Programming"
+  - name: "React Native"
     level: "Learning"
-    note: "Performance"
-  - name: "Kubernetes"
+    note: "Framework"
+  - name: "Jenkins"
     level: "Learning"
-    note: "Orchestration"
+    note: "Ci/cd"
 ---
