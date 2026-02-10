@@ -14,10 +14,18 @@ const socialImageURL = new URL("/screenshot_pc.webp", Astro.site);
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XYGE5E9SE"
+    <!-- Resource Hints for Performance -->
+    <link
+      rel="preconnect"
+      href="https://www.googletagmanager.com"
+      crossorigin
+    />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+    <!-- Google tag (gtag.js) - Deferred for better performance -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-4XYGE5E9SE"
     ></script>
-    <script>
+    <script defer>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
