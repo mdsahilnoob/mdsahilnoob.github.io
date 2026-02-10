@@ -48,7 +48,7 @@ const socialImageURL = new URL("/og-image.jpg", Astro.site);
       content="U5QtBLpaO0ya8nabzYoRKwLT-bJBNsORWg89vZjcV6s"
     />
     <link rel="icon" type="image/x-icon" href="/logo.svg" />
-    <link rel="canonical" href={canonicalURL} />
+    <link rel="canonical" href={canonicalURL.href} />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -62,11 +62,13 @@ const socialImageURL = new URL("/og-image.jpg", Astro.site);
     <meta name="revisit-after" content="7 days" />
     <meta name="rating" content="General" />
     <meta name="generator" content={Astro.generator} />
+
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:url" content={canonicalURL.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL.href} />
+    <meta property="og:image:url" content={socialImageURL.href} />
     <meta property="og:image:secure_url" content={socialImageURL.href} />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
@@ -77,17 +79,16 @@ const socialImageURL = new URL("/og-image.jpg", Astro.site);
     />
     <meta property="og:site_name" content="Mohammad Sahil - Portfolio" />
     <meta property="og:locale" content="en_US" />
-    <meta property="fb:app_id" content="000000000000000" />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={canonicalURL.href} />
+    <meta name="twitter:site" content="@mdsahilnoob" />
+    <meta name="twitter:creator" content="@mdsahilnoob" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:creator" content="@mdsahilnoob" />
     <meta name="twitter:image" content={socialImageURL.href} />
-    <meta
-      name="twitter:image:alt"
-      content="Mohammad Sahil Portfolio Screenshot"
-    />
+    <meta name="twitter:image:alt" content="Mohammad Sahil Portfolio Screenshot" />
+
     <script
       type="application/ld+json"
       set:html={JSON.stringify({
