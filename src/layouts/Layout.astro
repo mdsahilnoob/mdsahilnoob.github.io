@@ -78,14 +78,14 @@ const socialImageURL = new URL("/og.png", Astro.site);
     <meta property="og:site_name" content="Mohammad Sahil - Portfolio" />
     <meta property="og:locale" content="en_US" />
     <meta property="fb:app_id" content="000000000000000" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:creator" content="@mdsahilnoob" />
-    <meta property="twitter:image" content={socialImageURL.href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL.href} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:creator" content="@mdsahilnoob" />
+    <meta name="twitter:image" content={socialImageURL.href} />
     <meta
-      property="twitter:image:alt"
+      name="twitter:image:alt"
       content="Mohammad Sahil Portfolio Screenshot"
     />
     <script
