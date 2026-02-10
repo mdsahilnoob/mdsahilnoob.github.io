@@ -22,5 +22,28 @@ export default defineConfig({
     },
   },
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+      serialize(item) {
+        // Customize priority and changefreq based on URL patterns
+        if (item.url.includes('/index')) {
+          item.priority = 1.0;
+          item.changefreq = 'daily';
+        } else if (item.url.includes('/projects/')) {
+          item.priority = 0.8;
+          item.changefreq = 'weekly';
+        } else if (item.url.includes('/experience/')) {
+          item.priority = 0.8;
+          item.changefreq = 'monthly';
+        } else if (item.url.includes('/skills/')) {
+          item.priority = 0.7;
+          item.changefreq = 'monthly';
+        }
+        return item;
+      },
+    }),
+  ],
 });
