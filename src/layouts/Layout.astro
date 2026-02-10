@@ -114,10 +114,10 @@ const socialImageURL = new URL("/screenshot_pc.png", Astro.site);
     />
     <link
       rel="preload"
-      href="/fonts/GowunBatang.ttf"
+      href="/fonts/GowunBatang.woff2"
       as="font"
-      type="font/ttf"
-      crossorigin
+      type="font/woff2"
+      crossorigin="anonymous"
     />
     <style is:global>
       @import "../styles/global.css";
@@ -184,7 +184,7 @@ const socialImageURL = new URL("/screenshot_pc.png", Astro.site);
               }
             });
           },
-          { threshold: 0.1 }
+          { threshold: 0.1 },
         );
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -196,7 +196,7 @@ const socialImageURL = new URL("/screenshot_pc.png", Astro.site);
 
       const cursorDot = document.querySelector(".cursor-dot") as HTMLElement;
       const cursorOutline = document.querySelector(
-        ".cursor-outline"
+        ".cursor-outline",
       ) as HTMLElement;
 
       let mouseX = 0;
@@ -237,7 +237,7 @@ const socialImageURL = new URL("/screenshot_pc.png", Astro.site);
       animateCursors();
 
       const interactiveElements = document.querySelectorAll(
-        "a, button, .project-card, input, textarea"
+        "a, button, .project-card, input, textarea",
       );
 
       interactiveElements.forEach((el) => {
