@@ -3,8 +3,8 @@
 Modern, performant portfolio built with Astro, featuring zero JavaScript by default and optimal performance.
 
 <p align="center">
-  <img src="public/screenshot_pc.png" alt="mdsahil pc portfolio banner" />
-  <img src="public/screenshot_mobile.png" alt="mdsahil mobile portfolio banner" />
+  <img src="public/screenshot_pc.webp" alt="mdsahil pc portfolio banner" />
+  <img src="public/screenshot_mobile.webp" alt="mdsahil mobile portfolio banner" />
 </p>
 
 Full-Stack Developer | KIIT '27 | Google Student Ambassador '25
@@ -66,14 +66,17 @@ public/             Static assets
 astro.config.mjs    Astro configuration
 ```
 
-## Key Improvements from v2.0
+## Key Improvements, now v3.0
 
 - 90% JavaScript Reduction: From 195KB to <50KB
 - Removed GSAP: Replaced with CSS animations
-- Build-time GitHub Stars: No client-side API calls
+- Image optimization (webp) - 60-70% reduction
 - Component Architecture: Modular and maintainable
 - TypeScript: Type-safe content and props
-- Optimized Fonts: Preloaded and subsetted
+- Optimized Fonts: woff2 (99.8% reduction)
+- Defer google analytics saves ~300ms
+- compress using Brotli, astrojs/compress: reduction in size
+- Add resource hints saves ~200ms
 
 ## Adding New Projects
 
