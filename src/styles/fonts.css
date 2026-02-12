@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Gowun Batang';
-  src: url('/fonts/GowunBatang.woff2') format('woff2'),
-       url('/fonts/GowunBatang.ttf') format('truetype');
+  src: url('/fonts/GowunBatang.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
