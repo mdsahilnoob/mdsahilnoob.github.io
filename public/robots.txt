@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mdsahil.me/sitemap-index.xml
+Sitemap: https://mdsahil.me/sitemap.xml
