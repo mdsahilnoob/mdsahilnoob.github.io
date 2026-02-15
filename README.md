@@ -7,7 +7,11 @@ Modern, performant portfolio built with Astro, featuring zero JavaScript by defa
   <img src="public/screenshot_mobile.png" alt="mdsahil mobile portfolio banner" />
 </p>
 
+
+Note: My website ranks consistently top 10 in Google search, keywords: mdsahilnoob, mdsahil portfolio and many more (I am very proud)
+
 Full-Stack Developer | KIIT '27 | Google Student Ambassador '25
+
 
 ## Features
 
