@@ -1,7 +1,7 @@
 ---
 title: "Google Student Ambassador"
 company: "Google Developers"
-period: "Sep 2025 - Present"
+period: "Sep 2025 - Dec 2025"
 description: "Selected as one of the few Google Campus Ambassadors for the Gemini Program out of 1000+ applicants across India. Turning Gemini AI from a name students know into a skill they master, inspiring creative and practical AI projects, and building a culture of innovation on campus."
 skills:
   [
