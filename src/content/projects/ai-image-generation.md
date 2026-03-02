@@ -5,5 +5,5 @@ tech: ["JavaScript", "AI/ML", "Python", "TensorFlow"]
 github: "https://github.com/mdsahilnoob/AI-image-generation"
 live: "https://ai-image-generation-frontend-pw36.onrender.com/"
 stars: 1
-order: 10
+order: 11
 ---

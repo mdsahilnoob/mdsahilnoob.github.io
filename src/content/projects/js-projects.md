@@ -4,5 +4,5 @@ description: "A collection of various JavaScript projects showcasing different c
 tech: ["JavaScript", "HTML", "CSS", "DOM Manipulation"]
 github: "https://github.com/mdsahilnoob/JS_projects"
 stars: 1
-order: 11
+order: 12
 ---
