@@ -28,7 +28,7 @@ export default defineConfig({
       priority: 0.7,
       lastmod: new Date(),
       serialize(item) {
-        // Customize priority and changefreq based on URL patterns
+
         if (item.url.includes('/index')) {
           item.priority = 1.0;
           item.changefreq = 'daily';
@@ -42,8 +42,8 @@ export default defineConfig({
           item.priority = 0.7;
           item.changefreq = 'monthly';
         }
-      
-        // Add favicon image for sitemap
+
+
         item.img = [{
           url: 'https://mdsahil.me/favicon/favicon.ico',
           title: 'Mohammad Sahil Logo',

@@ -1,5 +1,5 @@
 :root {
-  /* Colors - Light Mode */
+
   --primary-text: #000000;
   --secondary-text: #444444;
   --tertiary-text: #666666;
@@ -10,18 +10,18 @@
   --background: #ffffff;
   --background-rgb: 255, 255, 255;
 
-  /* Typography */
+
   --font-family: 'Gowun Batang', serif;
   --hero-size: clamp(4rem, 12vw, 12rem);
   --section-size: clamp(2rem, 6vw, 4rem);
   --text-size: clamp(1rem, 2.5vw, 1.5rem);
 
-  /* Spacing */
+
   --container-max: 1400px;
   --container-padding: 40px;
   --section-padding: 120px 0;
 
-  /* Transitions */
+
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }

@@ -41,7 +41,7 @@
 
   animateOutline();
 
-  // Add hover effect for interactive elements
+
   const interactiveElements = document.querySelectorAll(
     "a, button, .project-card, input, textarea"
   );
@@ -99,7 +99,7 @@
     opacity: 0.3;
   }
 
-  /* Hide custom cursor on touch devices */
+
   @media (hover: none) and (pointer: coarse) {
     .cursor-dot,
     .cursor-outline {
@@ -107,7 +107,7 @@
     }
   }
 
-  /* Hide default cursor on desktop */
+
   @media (hover: hover) and (pointer: fine) {
     * {
       cursor: none !important;

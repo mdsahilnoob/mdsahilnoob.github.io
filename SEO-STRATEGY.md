@@ -22,7 +22,7 @@
 
 #### **Title Tag** (60 chars max)
 
-❌ **Current:** "Mohammad Sahil | Full-Stack Developer & Cloud Enthusiast"  
+❌ **Current:** "Mohammad Sahil | Full-Stack Developer & Cloud Enthusiast"
 ✅ **New:** "Mohammad Sahil - Design Engineer & Full-Stack Builder India"
 
 **Why:**
@@ -33,7 +33,7 @@
 
 #### **Meta Description** (150-160 chars)
 
-❌ **Current:** "Full-Stack Developer specializing in MERN Stack, TypeScript, Next.js, and cloud computing. Building scalable applications that solve real-world problems."  
+❌ **Current:** "Full-Stack Developer specializing in MERN Stack, TypeScript, Next.js, and cloud computing. Building scalable applications that solve real-world problems."
 ✅ **New:** "Design engineer building B2B/B2C SaaS products. I ship fast, code clean, design pixel-perfect. React, Next.js, TypeScript. Available for contract work."
 
 **Why:**
@@ -47,7 +47,7 @@
 
 ### **H1 Tag**
 
-❌ **Current:** Just displays "mohammad sahil" visually  
+❌ **Current:** Just displays "mohammad sahil" visually
 ✅ **Semantic H1 (hidden via CSS if needed):**
 
 ```html
@@ -65,7 +65,7 @@
 
 ### **Hero Tagline**
 
-❌ **Current:** "student developer, designer & builder"  
+❌ **Current:** "student developer, designer & builder"
 ✅ **New:** "design engineer & full-stack builder"
 
 **Why:**
@@ -382,7 +382,7 @@ Technologies: React, TypeScript, Node.js, PostgreSQL.
 #### **Critical for Ranking:**
 
 ```html
-<!-- These MUST be in initial HTML, not JS-rendered -->
+
 
 1. "Mohammad Sahil is a design engineer and full-stack developer in Bhubaneswar,
 India" 2. "I build B2B and B2C SaaS products using React, Next.js, and
@@ -764,7 +764,7 @@ Add these Q&A blocks to your site (creates snippet opportunities):
 
 You won't rank because you have more content.
 
-You'll rank because Google is confident:  
+You'll rank because Google is confident:
 **"This is Mohammad Sahil, a design engineer in India who builds SaaS products with React/Next.js. He's available for hire and can ship fast."**
 
 ### **Confidence Signals Google Needs:**
