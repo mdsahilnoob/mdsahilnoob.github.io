@@ -4,7 +4,7 @@ description: "Full-stack MERN platform for AI-powered mock interviews with real-
 tech: ["MongoDB", "Express", "React", "Node.js", "Socket.io", "Vite"]
 github: "https://github.com/shivampatra2027/Interview_platform"
 stars: 1
-order: 13
+order: 14
 ---
 
 **AI Interview Platform** is a comprehensive full-stack application where users can practice mock interviews with an AI interviewer. The system conducts real-time interviews, records responses, and generates detailed performance reports with feedback.
