@@ -12,10 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.8",
-    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/sitemap": "^3.7.3",
     "@emailjs/browser": "^4.4.1",
-    "astro": "^6.0.8",
+    "astro": "^7.1.6",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
