@@ -5,6 +5,7 @@ import SectionHeader from "../components/SectionHeader.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ExperienceCard from "../components/ExperienceCard.astro";
 import Skills from "../components/Skills.astro";
+import GitHubContributions from "../components/GitHubContributions.astro";
 import ContactForm from "../components/ContactForm.astro";
 import { getCollection } from "astro:content";
 
@@ -82,9 +83,16 @@ const experiences = allExperiences.sort((a, b) => a.data.order - b.data.order);
       </div>
     </section>
 
+    <section id="github" class="section fade-in">
+      <div class="container">
+        <SectionHeader title="github" number="05" />
+        <GitHubContributions />
+      </div>
+    </section>
+
     <section id="setup" class="fade-in">
       <div class="container">
-        <SectionHeader title="tools & setup" number="05" />
+        <SectionHeader title="tools & setup" number="06" />
         <div class="misc-grid">
           <div class="misc-item slide-up stagger-1">
             <span class="misc-number">01</span>
@@ -126,7 +134,7 @@ const experiences = allExperiences.sort((a, b) => a.data.order - b.data.order);
 
     <section id="contact" class="section fade-in">
       <div class="container">
-        <SectionHeader title="get in touch" number="06" />
+        <SectionHeader title="get in touch" number="07" />
         <ContactForm />
       </div>
     </section>
@@ -161,6 +169,12 @@ const experiences = allExperiences.sort((a, b) => a.data.order - b.data.order);
   .section#skills {
     padding-top: 0;
     padding-bottom: 30px;
+  }
+
+  .section#github {
+    padding-top: -200px;
+    padding-bottom: 30px;
+    padding-left: 0;
   }
 
   .section#setup {
